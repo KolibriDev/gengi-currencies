@@ -2,8 +2,5 @@
   "version": 2,
   "builds": [
     {"src": "currencies.js", "use": "@now/node"}
-  ],
-  "routes": [
-    { "src": "/currencies", "dest": "/currencies.js" }
   ]
 }
