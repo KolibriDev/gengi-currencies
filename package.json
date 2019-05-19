@@ -1,0 +1,11 @@
+{
+  "name": "gengi-currencies",
+  "version": "1.0.0",
+  "description": "Fetching currencies for gengi.is",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.0",
+    "xml2js": "^0.4.19"
+  }
+}
