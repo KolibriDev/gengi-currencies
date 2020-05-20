@@ -67,7 +67,7 @@ export default async (req, res) => {
       'Content-Type': 'application/json; charset=utf-8',
       'Access-Control-Allow-Origin' : 'https://gengi.is',
       'Access-Control-Request-Method' : 'GET',
-      // 'Cache-Control': `s-maxage=${expires - new Date().getTime()}`
+      'Cache-Control': `s-maxage=${expires - new Date().getTime()}`
     })
     res.end(JSON.stringify({
       currencyDate: date,
