@@ -7,8 +7,8 @@ const parseXml = (xmlString) => new Promise((resolve, reject) => {
   parseString(xmlString, { explicitRoot: false }, (err, result) => {
     if (err || !result.hasOwnProperty('Rate') || result.Status[0].ResultCode[0] != '0') {
       reject(err)
-    } 
-    
+    }
+
     resolve(result)
   })
 })
@@ -63,9 +63,11 @@ export default async (req, res) => {
 
     const expires = new Date(year, Number(month - 1), day ).getTime() + dayInMS
 
-    res.writeHead(200, { 
-      'Content-Type': 'application/json; charset=utf-8', 
-      'Cache-Control': `s-maxage=${expires - new Date().getTime()}` 
+    res.writeHead(200, {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Access-Control-Allow-Origin' : 'https://gengi.is',
+      'Access-Control-Request-Method' : 'GET',
+      // 'Cache-Control': `s-maxage=${expires - new Date().getTime()}`
     })
     res.end(JSON.stringify({
       currencyDate: date,
