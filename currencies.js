@@ -59,15 +59,15 @@ export default async (req, res) => {
 
     const date = parsedXml.Rate[0].RateDate[0];
     const [day, month, year] = date.split('.')
-    const dayInS = 60 * 60 * 24;
+    const dayInMS = 1000 * 60 * 60 * 24;
 
-    const expires = new Date(year, Number(month - 1), day ).getTime() + dayInS
+    const expires = new Date(year, Number(month - 1), day ).getTime() + dayInMS
 
     res.writeHead(200, {
       'Content-Type': 'application/json; charset=utf-8',
       'Access-Control-Allow-Origin' : 'https://gengi.is',
       'Access-Control-Request-Method' : 'GET',
-      'Cache-Control': `s-maxage=${expires - new Date().getTime()}`
+      'Cache-Control': `s-maxage=${(expires - new Date().getTime()) / 1000}`
     })
     res.end(JSON.stringify({
       currencyDate: date,
