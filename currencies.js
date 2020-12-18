@@ -71,7 +71,7 @@ export default async (req, res) => {
     })
     res.end(JSON.stringify({
       currencyDate: date,
-      expires,
+      expires: Number(expires / 1000),
       list: currencies,
     }))
   } catch (error) {
