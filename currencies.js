@@ -59,9 +59,9 @@ export default async (req, res) => {
 
     const date = parsedXml.Rate[0].RateDate[0];
     const [day, month, year] = date.split('.')
-    const dayInMS = 1000 * 60 * 60 * 24;
+    const dayInS = 60 * 60 * 24;
 
-    const expires = new Date(year, Number(month - 1), day ).getTime() + dayInMS
+    const expires = new Date(year, Number(month - 1), day ).getTime() + dayInS
 
     res.writeHead(200, {
       'Content-Type': 'application/json; charset=utf-8',
