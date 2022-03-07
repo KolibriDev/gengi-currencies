@@ -75,8 +75,8 @@ export default async (req, res) => {
       list: currencies,
     }))
   } catch (error) {
-    console.log('Error in currencies', error) 
+    console.log('Error in currencies', error)
     res.writeHead(500)
-    res.end('Something went wrong')
+    res.end('Something went wrong in currencies')
   }
 }
